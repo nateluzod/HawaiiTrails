@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hawaii Trails</title>    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+    <script src="static/js/leaflet-gpx/gpx.js"></script>
+    <style type="text/css">
+
+
+      #map { 
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      
+
+      .track-stats {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0
+      }
+
+      .track-stats__list {
+        padding: 10px;
+        width: 100%;
+        float: left;
+        background: rgba(0,0,0,0.8);
+        position: fixed;
+        bottom: 0;
+        margin: 0;
+        color: #fff;
+        font-family: Helvetica;
+        font-size: 10px;
+      }
+
+      .track-stats__title {
+        display: inline-block;
+        margin: 0;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .track-stats__stat {
+        display: inline-block;
+        margin: 0;
+        padding-right: 40px;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    <footer class="track-stats">
+      <dl class="track-stats__list">
+        <dt class="track-stats__title">Trail</dt>
+        <dd class="track-stats__stat" id="track-name"></dd>
+        <dt class="track-stats__title">Distance</dt>
+        <dd class="track-stats__stat" id="track-distance"></dd>
+        <dt class="track-stats__title">Elevation Gain</dt>
+        <dd class="track-stats__stat" id="track-elevation-gain"></dd>
+        <dt class="track-stats__title">Elevation Loss</dt>
+        <dd class="track-stats__stat" id="track-elevation-loss"></dd>
+      </dl>
+    </footer>
+  </body>
+</html>
