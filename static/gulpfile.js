@@ -12,7 +12,9 @@ var sourcemaps  = require('gulp-sourcemaps'),
 var paths = {
     globalLibs : [
       './vendor/leaflet/dist/leaflet.js',
-      './vendor/leaflet-gpx/gpx.js'
+      './vendor/leaflet-gpx/gpx.js',
+      './vendor/modernizr/modernizr.js',
+      './js/init.js'
     ]
 }
 
@@ -23,7 +25,8 @@ gulp.task('global-libs', function() {
     .on('error', notify.onError("JavaScript compilation error"))
     .on('error', gutil.log)
     .pipe(sourcemaps.init())
-    .pipe(concat("compiled-libs.js"))
+    .pipe(uglify())
+    .pipe(concat("scripts.js"))
     .pipe(gulp.dest('./js/'))
     .pipe(livereload());
 });
