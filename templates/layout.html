@@ -18,6 +18,9 @@
       </dl>
     </footer>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script>
+      var files = [{% for file in files -%} {{ file }}, {%- endfor %}];
+    </script>
     <script src="static/js/scripts.js"></script>
   </body>
 </html>

@@ -26,24 +26,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 new L.Control.Zoom({ position: 'topright' }).addTo(map);
 
-var files = [
-  'pupukea-laie',
-  'schofield-waikane',
-  'godek-jaskulski',
-  'kawailoa',
-  'ohulehule',
-  'moole-lanihuli',
-  'tantalus',
-  'k2-lulumahu',
-  'papali-loop',
-  'mauumae',
-  'tomtom-kamiloiki-ridge',
-  'awaawaloa',
-  'kawainui'
-  ];
-
 for (var i = 0; i < files.length; ++i) {
-  new L.GPX("static/gpx/" + files[i] + ".gpx", {async: true}).on('loaded', function(e) {}).addTo(map).on('click', function(){
+  new L.GPX(files[i], {async: true}).on('loaded', function(e) {}).addTo(map).on('click', function(){
     document.getElementById('track-name').innerHTML = this.get_name();
     document.getElementById('track-distance').innerHTML = metersToMiles(this.get_distance()) + " miles";
     document.getElementById('track-elevation-gain').innerHTML = metersToFeet(this.get_elevation_gain()) + " feet";

@@ -3,7 +3,13 @@
 <h1>Admin</h1>
 
 <h2>Trail Listing</h2>
+<ul>
+  {% for file in files %}
+    <li>{{ file }}</li>
+  {% endfor %}
+</ul>
 
 <h2>Add a Trail</h2>
+
 
 {% endblock %}
