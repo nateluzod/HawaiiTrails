@@ -4,9 +4,29 @@ var sourcemaps  = require('gulp-sourcemaps'),
     runsequence = require('run-sequence');
     uglify      = require('gulp-uglify'),
     coffee      = require('gulp-coffee'),
+    concat      = require('gulp-concat'),
     notify      = require('gulp-notify'),
     gutil       = require('gulp-util'), 
     gulp        = require('gulp');
+
+var paths = {
+    globalLibs : [
+      './vendor/leaflet/dist/leaflet.js',
+      './vendor/leaflet-gpx/gpx.js'
+    ]
+}
+
+/* Global libs */
+
+gulp.task('global-libs', function() {
+  return gulp.src(paths.globalLibs)
+    .on('error', notify.onError("JavaScript compilation error"))
+    .on('error', gutil.log)
+    .pipe(sourcemaps.init())
+    .pipe(concat("compiled-libs.js"))
+    .pipe(gulp.dest('./js/'))
+    .pipe(livereload());
+});
 
 /* Sass */
 
@@ -35,4 +55,4 @@ gulp.task('watch', function(){
 
 /* Default task */
 
-gulp.task('default',['watch']);
+gulp.task('default',['watch','global-libs']);

@@ -1,0 +1,25 @@
+{
+  "name": "hawaii-trails",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nateluzod/HawaiiTrails",
+  "authors": [
+    "Nate Luzod <nate.luzod@mac.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bitters": "~1.0.0",
+    "bourbon": "~4.2.3",
+    "leaflet": "~0.7.3",
+    "meyer-reset": "*",
+    "neat": "~1.7.2",
+    "leaflet-gpx": "https://github.com/mpetazzoni/leaflet-gpx.git"
+  }
+}
