@@ -27,7 +27,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 new L.Control.Zoom({ position: 'topright' }).addTo(map);
 
 for (var i = 0; i < files.length; ++i) {
-  new L.GPX(files[i], {async: true}).on('loaded', function(e) {}).addTo(map).on('click', function(){
+  new L.GPX("static/gpx/" + files[i], {async: true}).on('loaded', function(e) {}).addTo(map).on('click', function(){
     document.getElementById('track-name').innerHTML = this.get_name();
     document.getElementById('track-distance').innerHTML = metersToMiles(this.get_distance()) + " miles";
     document.getElementById('track-elevation-gain').innerHTML = metersToFeet(this.get_elevation_gain()) + " feet";
